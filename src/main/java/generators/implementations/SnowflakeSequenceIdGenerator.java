@@ -11,9 +11,9 @@ public class SnowflakeSequenceIdGenerator implements SequenceIdGenerator {
 
     private final Long nodeId;
 
-    private final long maxSequence = (1L << SEQUENCE_BIT_LENGTH) - 1;
-    private final long maxNodeIdValue = (1L << NODE_ID_BIT_LENGTH) - 1;
-    private final long EPOCH_START = Instant.EPOCH.getNano();
+    private final long maxSequence = -1L ^ (-1L << SEQUENCE_BIT_LENGTH);
+    private final long maxNodeIdValue = -1L ^ (-1L << NODE_ID_BIT_LENGTH);
+    private final long EPOCH_START = Instant.EPOCH.toEpochMilli();
     private final long timeStampLeftSift = NODE_ID_BIT_LENGTH + SEQUENCE_BIT_LENGTH;
 
     private volatile long currentSequence = 0L;
@@ -53,7 +53,7 @@ public class SnowflakeSequenceIdGenerator implements SequenceIdGenerator {
     }
 
     private long getTimeStamp() {
-        return System.nanoTime();
+        return System.currentTimeMillis();
     }
 
     private long waitTillNextMillis() {

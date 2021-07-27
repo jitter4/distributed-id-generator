@@ -1,8 +1,8 @@
 package constants;
 
 public class Constants {
-    public static final int SIGN_BIT_LENGTH = 1;
-    public static final int EPOCH_BIT_LENGTH = 41;
-    public static final int NODE_ID_BIT_LENGTH = 10;
-    public static final int SEQUENCE_BIT_LENGTH = 12;
+    public static final long SIGN_BIT_LENGTH = 1L;
+    public static final long EPOCH_BIT_LENGTH = 41L;
+    public static final long NODE_ID_BIT_LENGTH = 10L;
+    public static final long SEQUENCE_BIT_LENGTH = 12L;
 }
